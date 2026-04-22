@@ -11,3 +11,5 @@ router.get("/hello", (req, res) => {
 });
 
 export default router;
+
+console.log("Info route loaded");
