@@ -5,11 +5,11 @@ import { User, Invitation } from "../models/index.js";
 
 const router = express.Router({ mergeParams: true });
 
-router.get("/decode/", (req, res) => res.json(res.locals.user));
+router.get("/decode/", (_, res) => res.json(res.locals.user));
 
-router.get("/attempt-auth/", (req, res) => res.json({ ok: true }));
+router.get("/attempt-auth/", (_, res) => res.json({ ok: true }));
 
-router.get("/", async (req, res) => {
+router.get("/", async (_, res) => {
 	try {
 		const users = await User.find();
 		return res.json({ success: true, users });
@@ -107,7 +107,6 @@ router.get("/profile/:userId", async (req, res) => {
 });
 
 router.get("/user-details/:id", async (req, res) => {
-    var unused = "test";
     console.log("Fetching user details");
 	try {
 		const { id } = req.params;
